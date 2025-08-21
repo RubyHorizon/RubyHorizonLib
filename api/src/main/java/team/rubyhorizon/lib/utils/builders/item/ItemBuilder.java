@@ -5,7 +5,6 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
-import team.rubyhorizon.lib.utils.builders.ItemStackWrapper;
 import team.rubyhorizon.lib.utils.builders.item.meta.*;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.List;
 
 // By Loft69
 public class ItemBuilder {
-    private final ItemStackWrapper itemStackWrapper;
+    private final team.rubyhorizon.lib.utils.builders.item.ItemStackWrapper itemStackWrapper;
     private final List<MetaBuilder> metaBuilders = new ArrayList<>();
 
     public ItemBuilder(Material material) {
