@@ -2,10 +2,9 @@ name: Publish API to GitHub Packages
 
 on:
   push:
-    branches: [master]
-    paths:
-      - 'api/**'
-      - 'gradle.yml'
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
   publish:
