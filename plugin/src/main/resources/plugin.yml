@@ -1,5 +1,5 @@
 name: RubyHorizonLib
 version: '0.0.1'
-main: team.rubyhorizon.lib.rubyHorizonLib.RubyHorizonLib
+main: team.rubyhorizon.lib.RubyHorizonLibPlugin
 api-version: '1.18'
 authors: [Shershnyaga_]
