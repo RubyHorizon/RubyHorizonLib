@@ -1,4 +1,4 @@
-package team.rubyhorizon.lib.utils;
+package team.rubyhorizon.lib.utils.builders;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.title.Title;
