@@ -3,7 +3,9 @@ package team.rubyhorizon.lib.configurate;
 import org.junit.jupiter.api.Test;
 import org.spongepowered.configurate.objectmapping.ConfigSerializable;
 import org.spongepowered.configurate.serialize.TypeSerializerCollection;
+import team.rubyhorizon.lib.configurate.serializers.ComponentSerializer;
 
+import java.awt.*;
 import java.io.File;
 
 public class ConfigHolderTest {
@@ -12,7 +14,8 @@ public class ConfigHolderTest {
 
     @Test
     void testCreate() {
-        config.loadOrCreateConfig(new File("config_test.yml"), TypeSerializerCollection.builder());
+        config.loadOrCreateConfig(new File("config_test.yml"), TypeSerializerCollection.builder()
+                .register(Component.class, new ComponentSerializer()));
         System.out.println(config.test1);
         System.out.println(config.test2);
         System.out.println(config.test3);
