@@ -1,7 +1,11 @@
 package team.rubyhorizon.lib;
 
+import dev.jorel.commandapi.CommandAPI;
+import dev.jorel.commandapi.CommandAPIBukkitConfig;
+import dev.jorel.commandapi.CommandAPICommand;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import team.rubyhorizon.lib.commands.RhLibCommand;
 import team.rubyhorizon.lib.metrics.BstatsMetrics;
 
 public final class RubyHorizonLibPlugin extends JavaPlugin {
@@ -23,13 +27,23 @@ public final class RubyHorizonLibPlugin extends JavaPlugin {
             """;
 
     @Override
+    public void onLoad() {
+        CommandAPI.onLoad(new CommandAPIBukkitConfig(this).verboseOutput(true));
+    }
+
+    @Override
     public void onEnable() {
+        CommandAPI.onEnable();
         bstatsMetrics = new BstatsMetrics(this, 27004);
+
+        new RhLibCommand().get().register(this);
+
         Bukkit.getLogger().info(logoMessage);
     }
 
     @Override
     public void onDisable() {
+        CommandAPI.onDisable();
         bstatsMetrics.shutdown();
     }
 }
