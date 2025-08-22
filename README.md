@@ -3,7 +3,6 @@
   <img src="docs/img/logo.png" alt="logo" width="200" height="200">
 </p>
 
-
 ## Base lib for our plugins.
 
 ## For server owners
