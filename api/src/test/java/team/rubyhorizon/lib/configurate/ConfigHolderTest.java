@@ -14,6 +14,8 @@ public class ConfigHolderTest {
     void testCreate() {
         config.loadOrCreateConfig(new File("config_test.yml"), TypeSerializerCollection.builder());
         System.out.println(config.test1);
+        System.out.println(config.test2);
+        System.out.println(config.test3);
     }
 
     @ConfigSerializable
@@ -24,7 +26,7 @@ public class ConfigHolderTest {
         private boolean test3 = true;
 
         public Config() {
-            super(Config.class);
+
         }
     }
 
