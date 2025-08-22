@@ -10,7 +10,7 @@ import org.spongepowered.configurate.yaml.YamlConfigurationLoader;
 import java.io.File;
 import java.lang.reflect.Constructor;
 
-public class ConfigHolder<T> {
+public abstract class ConfigHolder<T> {
 
     private transient final Class<T> clazz;
 
@@ -37,10 +37,6 @@ public class ConfigHolder<T> {
             node.set(clazz, value);
             configLoader.save(node);
         }
-    }
-
-    public T get() {
-        return value;
     }
 
     private YamlConfigurationLoader buildConfigLoader(File file, ConfigurationOptions options) {

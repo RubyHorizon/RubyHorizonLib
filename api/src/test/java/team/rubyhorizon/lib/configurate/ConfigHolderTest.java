@@ -13,6 +13,7 @@ public class ConfigHolderTest {
     @Test
     void testCreate() {
         config.loadOrCreateConfig(new File("config_test.yml"), TypeSerializerCollection.builder());
+        System.out.println(config.test1);
     }
 
     @ConfigSerializable
