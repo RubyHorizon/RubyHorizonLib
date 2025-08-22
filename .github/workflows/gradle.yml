@@ -5,7 +5,7 @@ on:
     branches: [master]
     paths:
       - 'api/**'
-      - '.github/workflows/publish.yml'
+      - 'gradle.yml'
 
 jobs:
   publish:
