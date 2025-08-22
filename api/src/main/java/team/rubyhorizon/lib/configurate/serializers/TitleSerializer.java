@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import org.spongepowered.configurate.ConfigurationNode;
 import org.spongepowered.configurate.serialize.SerializationException;
 import org.spongepowered.configurate.serialize.TypeSerializer;
-import team.rubyhorizon.lib.utils.TitleBuilder;
+import team.rubyhorizon.lib.utils.builders.TitleBuilder;
 
 import java.lang.reflect.Type;
 import java.time.Duration;
