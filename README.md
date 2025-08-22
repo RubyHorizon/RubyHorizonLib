@@ -1,3 +1,8 @@
+<h1 align="center">Ruby Horizon Lib</h1>
+<p align="center">
+  <img src="docs/img/logo.png" alt="logo" width="200" height="200">
+</p>
+
 ## Base lib for our plugins.
 
 ## For server owners
