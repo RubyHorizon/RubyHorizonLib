@@ -13,6 +13,11 @@ repositories {
         name = "papermc-repo"
         url = "https://repo.papermc.io/repository/maven-public/"
     }
+
+    maven {
+        name = "codemc-repo"
+        url = "https://repo.codemc.org/repository/maven-public/"
+    }
 }
 
 dependencies {
@@ -23,6 +28,8 @@ dependencies {
     implementation 'org.spongepowered:configurate-yaml:4.1.2'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+
+    implementation('dev.jorel:commandapi-bukkit-shade:10.1.2')
 }
 
 test {
@@ -68,6 +75,8 @@ tasks.shadowJar {
     archiveClassifier.set('all')
     relocate 'org.spongepowered.configurate', 'team.rubyhorizon.lib.configurate'
     relocate 'org.yaml.snakeyaml', 'team.rubyhorizon.lib.yaml'
+    relocate 'dev.jorel.commandapi', 'team.rubyhorizon.lib.commandapi'
+    relocate 'io.leangen.geantyref', 'team.rubyhorizon.lib.geantyref'
     mergeServiceFiles()
     manifest {
         attributes 'Implementation-Version': version
