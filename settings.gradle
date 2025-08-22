@@ -1,4 +1,5 @@
 rootProject.name = 'RubyHorizonLib'
 
-include(':api')
-include(':plugin')
+include('plugin', 'api')
+project(':plugin').projectDir = file('plugin')
+project(':api').projectDir = file('api')

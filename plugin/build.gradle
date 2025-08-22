@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'team.rubyhorizon.lib'
-version = '0.0.1'
+version = rootProject.version
 
 repositories {
     mavenCentral()
@@ -18,7 +18,8 @@ repositories {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")
 
-    implementation('org.spongepowered:configurate-yaml:4.2.0')
+    compileOnly('org.spongepowered:configurate-yaml:4.2.0')
+    implementation('team.rubyhorizon.lib:api:' + rootProject.version)
 }
 
 tasks {
@@ -26,7 +27,7 @@ tasks {
     // Configure the Minecraft version for our task.
     // This is the only required configuration besides applying the plugin.
     // Your plugin's jar (or shadowJar if present) will be used automatically.
-    minecraftVersion("1.18")
+    minecraftVersion("1.21.4")
   }
 }
 
@@ -45,5 +46,15 @@ tasks.withType(JavaCompile).configureEach {
 
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
         options.release.set(targetJavaVersion)
+    }
+}
+
+tasks.shadowJar {
+    archiveClassifier.set('all')
+    relocate 'org.spongepowered.configurate', 'team.rubyhorizon.lib.configurate'
+    relocate 'org.yaml.snakeyaml', 'team.rubyhorizon.lib.yaml'
+    mergeServiceFiles()
+    manifest {
+        attributes 'Implementation-Version': version
     }
 }
