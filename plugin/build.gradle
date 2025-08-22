@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'team.rubyhorizon.lib'
-version = rootProject.version
+version = '1.0.0'
 
 repositories {
     mavenCentral()
@@ -19,7 +19,7 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")
 
     compileOnly('org.spongepowered:configurate-yaml:4.2.0')
-    implementation('team.rubyhorizon.lib:api:' + rootProject.version)
+    implementation('team.rubyhorizon.lib:api:' + version)
 }
 
 tasks {
@@ -46,6 +46,16 @@ tasks.withType(JavaCompile).configureEach {
 
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
         options.release.set(targetJavaVersion)
+    }
+}
+
+processResources {
+    def props = [version: rootProject.version]
+    println "Expanding plugin.yml with version: ${rootProject.version}"
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
     }
 }
 
